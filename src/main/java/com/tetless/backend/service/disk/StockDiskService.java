@@ -30,13 +30,13 @@ public class StockDiskService {
 
 	public boolean stockSellCountWithStockBuy() {
 		StockSellEntity stockSell = stockDiskRepository.findById(1).get();
-		int preSumBuyQutity = stockBuyDiskRepository.sumBuyQutity(1);
+		int preSumBuyQutity = stockBuyDiskRepository.sumBuyQuantity(1);
 
 		if (preSumBuyQutity < stockSell.getSellQty()) {
 			StockBuyEntity stockBuy = StockBuyEntity.create(1, 1);
 			stockBuyDiskRepository.save(stockBuy);
 			// NOTE: 실질적으로는 중간 작업으로 인한 텀이 있음
-			int postSumBuyQutity = stockBuyDiskRepository.sumBuyQutity(1);
+			int postSumBuyQutity = stockBuyDiskRepository.sumBuyQuantity(1);
 			if (postSumBuyQutity > stockSell.getSellQty()) {
 				stockBuy.changeStatus(BuyStatus.FAIL);
 				log.info("overflow : {}", stockBuy.getStockBuyNo());

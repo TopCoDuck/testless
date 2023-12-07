@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StockNotingService {
-	public boolean stockSellCount() {
-		return true;
-	}
+    public boolean stockSellCount() {
+        return true;
+    }
 }

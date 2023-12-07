@@ -15,8 +15,7 @@ public class StockMemoryRepository {
 	private final RedisTemplate<String, String> redisTemplate;
 	
 	private static final String STOCK_SELL_KEY = "stock:sell";
-	
-	
+
 	public boolean stockSellCount() {
 		this.stockSellCountLua();
 		return true;

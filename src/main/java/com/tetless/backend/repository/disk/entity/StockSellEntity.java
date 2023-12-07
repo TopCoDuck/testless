@@ -9,19 +9,19 @@ import lombok.Getter;
 @Entity
 @Table(name = "stock_sell")
 public class StockSellEntity {
-	@Id
-	private int stockSellNo;
+    @Id
+    private int stockSellNo;
 
-	private int sellQty;
+    private int sellQty;
 
-	private int soldQty;
+    private int soldQty;
 
-	public void changeSoldQty(int purchaseQty) {
-		int changedSoldQty = this.soldQty + purchaseQty;
-		if (changedSoldQty <= sellQty) {
-			this.soldQty = changedSoldQty;
-		} else {
-			// throw new RuntimeException("재고가 부족합니다."); TODO: 테스트를 위해 주석 처리
-		}
-	}
+    public void changeSoldQty(int purchaseQty) {
+        int changedSoldQty = this.soldQty + purchaseQty;
+        if (changedSoldQty <= sellQty) {
+            this.soldQty = changedSoldQty;
+        } else {
+            // throw new RuntimeException("재고가 부족합니다."); TODO: 테스트를 위해 주석 처리
+        }
+    }
 }
