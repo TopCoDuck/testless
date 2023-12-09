@@ -3,4 +3,5 @@
 
 - Spring Boot
 - Mysql
+- JPA
 - Redis
